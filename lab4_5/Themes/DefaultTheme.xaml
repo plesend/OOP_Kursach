@@ -1,0 +1,708 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="WindowStyle" TargetType="Window">
+        <Setter Property="Background" Value="white" />
+    </Style>
+
+    <Style x:Key="MainBorderStyle" TargetType="Border">
+        <Setter Property="BorderBrush" Value="#A578BB"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="Padding" Value="20"/>
+    </Style>
+    <Style x:Key="SpecialButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="#A578BB"/>
+        <Setter Property="Foreground" Value="white"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Padding" Value="10,5"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    <!-- Стиль для кнопок -->
+    <Style x:Key="BaseButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="white"/>
+        <Setter Property="Foreground" Value="#A578BB"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Padding" Value="10,5"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="LightGray"/>
+            </Trigger>
+        </Style.Triggers>
+
+    </Style>
+
+    <!--- И еще стиль для combobox -->
+    <Style x:Key="CmbStyle" TargetType="ComboBox">
+        <Setter Property="Background" Value="white"/>
+        <Setter Property="Foreground" Value="#A578BB"/>
+        <Setter Property="BorderBrush" Value="LightGray"/>
+        <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+
+    <Style TargetType="ComboBoxItem">
+        <Setter Property="Background" Value="white"/>
+        <Setter Property="Foreground" Value="#A578BB"/>
+        <Setter Property="Padding" Value="4"/>
+    </Style>
+
+    <!-- Стиль для текстовых полей -->
+    <Style x:Key="BaseTextBoxStyle" TargetType="TextBox">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="BorderBrush" Value="LightGray"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+    </Style>
+
+    <Style x:Key="BasePasswordBoxStyle" TargetType="PasswordBox">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="BorderBrush" Value="LightGray"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Background" Value="White"/>
+    </Style>
+
+
+
+    <!-- Стиль для ComboBox -->
+    <Style x:Key="BaseComboBoxStyle" TargetType="ComboBox">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Background" Value="LightGray"/>
+        <Setter Property="Foreground" Value="#A578BB"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Margin" Value="5"/>
+    </Style>
+
+    <!-- Стиль для TextBlock -->
+    <Style x:Key="BaseTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground" Value="#A578BB"/>
+        <Setter Property="Margin" Value="5"/>
+    </Style>
+
+    <Style x:Key="DeleteButtonStyle" TargetType="Button">
+        <Setter Property="Margin" Value="5,1,5,5"/>
+        <Setter Property="Background" Value="Red"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="LightGray"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="BuyButtonStyle" TargetType="Button">
+        <Setter Property="Margin" Value="5,1,5,5"/>
+        <Setter Property="Background" Value="#A578BB"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="LightGray"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+
+    <Style x:Key="LittleButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="white"/>
+        <Setter Property="Foreground" Value="#A578BB"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="FontSize" Value="10"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="Margin" Value="1"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="LightGray"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- Стиль для Separator -->
+    <Style x:Key="BaseSeparatorStyle" TargetType="Separator">
+        <Setter Property="Background" Value="#A578BB"/>
+        <Setter Property="Margin" Value="5,10"/>
+    </Style>
+
+    <Style x:Key="AboutUsHeadingStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="#A578BB"/>
+        <Setter Property="Margin" Value="0 0 0 20"/>
+    </Style>
+
+    <Style x:Key="AboutUsSubheadingStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="#A578BB"/>
+        <Setter Property="Margin" Value="0 0 0 5"/>
+    </Style>
+
+    <Style x:Key="AboutUsContentTextStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground" Value="#333"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="Margin" Value="0 0 10 10"/>
+    </Style>
+
+    <Style x:Key="AboutUsAddressTextStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground" Value="Gray"/>
+        <Setter Property="Margin" Value="0 0 0 2"/>
+    </Style>
+
+    <Style x:Key="AboutUsImageStyle" TargetType="Image">
+        <Setter Property="Stretch" Value="UniformToFill"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="MaxHeight" Value="Infinity"/>
+        <Setter Property="MaxWidth" Value="Infinity"/>
+        <Setter Property="ClipToBounds" Value="True"/>
+    </Style>
+
+    <!-- Add these to your ResourceDictionary -->
+    <Style x:Key="AddProductWindowTitleStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="0,0,0,10"/>
+    </Style>
+
+    <Style x:Key="FormLabelTextBlockStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+        <Setter Property="Margin" Value="0,10,0,2"/>
+    </Style>
+
+    <Style x:Key="FormTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource BaseTextBoxStyle}">
+        <Setter Property="Width" Value="220"/>
+        <Setter Property="Margin" Value="0,0,0,5"/>
+    </Style>
+
+    <Style x:Key="MultilineTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource FormTextBoxStyle}">
+        <Setter Property="AcceptsReturn" Value="True"/>
+        <Setter Property="Height" Value="60"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+
+    <Style x:Key="BrowseButtonStyle" TargetType="Button" BasedOn="{StaticResource SpecialButtonStyle}">
+        <Setter Property="Width" Value="70"/>
+        <Setter Property="Height" Value="30"/>
+    </Style>
+
+    <Style x:Key="SubmitButtonStyle" TargetType="Button" BasedOn="{StaticResource SpecialButtonStyle}">
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Margin" Value="0,10,0,0"/>
+    </Style>
+    
+    <!-- Cart Item Border Style -->
+        <Style x:Key="CartItemBorderStyle" TargetType="Border">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#DDD"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Padding" Value="10"/>
+        </Style>
+
+        <!-- Product Name Text Style -->
+        <Style x:Key="ProductNameTextStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#333"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+
+        <!-- Price Text Style -->
+        <Style x:Key="PriceTextStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Foreground" Value="#555"/>
+            <Setter Property="Margin" Value="0,5,0,0"/>
+        </Style>
+
+        <!-- Total Price Text Style -->
+        <Style x:Key="TotalPriceTextStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Foreground" Value="#A578BB"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="0,5,0,0"/>
+        </Style>
+
+        <!-- Quantity Button Style -->
+        <Style x:Key="QuantityButtonStyle" TargetType="Button" BasedOn="{StaticResource LittleButtonStyle}">
+            <Setter Property="Width" Value="30"/>
+            <Setter Property="Height" Value="24"/>
+            <Setter Property="Margin" Value="0,0,5,0"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+
+        <!-- Remove Button Style -->
+        <Style x:Key="RemoveButtonStyle" TargetType="Button" BasedOn="{StaticResource LittleButtonStyle}">
+            <Setter Property="Background" Value="#FF5252"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Padding" Value="5,2"/>
+        </Style>
+
+        <!-- Cart Total Text Style -->
+        <Style x:Key="CartTotalTextStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+
+        <!-- Cart Total Amount Style -->
+        <Style x:Key="CartTotalAmountStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#A578BB"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+        </Style>
+
+        <!-- Clear Cart Button Style -->
+        <Style x:Key="ClearCartButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Height" Value="36"/>
+            <Setter Property="Margin" Value="10,0"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#A578BB"/>
+            <Setter Property="BorderBrush" Value="#A578BB"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+
+        <!-- Checkout Button Style -->
+        <Style x:Key="CheckoutButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="36"/>
+            <Setter Property="Background" Value="#A578BB"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderBrush" Value="#A578BB"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+
+        <!-- ScrollViewer Style -->
+        <Style x:Key="CartScrollViewerStyle" TargetType="ScrollViewer">
+            <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="HorizontalScrollBarVisibility" Value="Disabled"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+
+        <!-- Cart Header Style -->
+        <Style x:Key="CartHeaderTextStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#A578BB"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0,0,0,20"/>
+        </Style>
+
+        <!-- Image Style for Cart Items -->
+        <Style x:Key="CartItemImageStyle" TargetType="Image">
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="60"/>
+            <Setter Property="Stretch" Value="Uniform"/>
+            <Setter Property="Margin" Value="0,0,10,0"/>
+        </Style>
+
+    <!-- Add these styles to your existing ResourceDictionary -->
+
+    <!-- Edit Window Title Style -->
+    <Style x:Key="EditWindowTitleStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="0,0,0,10"/>
+    </Style>
+
+    <!-- Form Field Container Style -->
+    <Style x:Key="FormFieldContainerStyle" TargetType="StackPanel">
+        <Setter Property="Margin" Value="0,0,0,10"/>
+    </Style>
+
+    <!-- Compact Button Style -->
+    <Style x:Key="CompactButtonStyle" TargetType="Button" BasedOn="{StaticResource SpecialButtonStyle}">
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Margin" Value="5"/>
+    </Style>
+
+    <!-- Form TextBox with Fixed Width -->
+    <Style x:Key="FixedWidthTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource BaseTextBoxStyle}">
+        <Setter Property="Width" Value="220"/>
+        <Setter Property="Margin" Value="0,0,0,5"/>
+    </Style>
+
+    <!-- Multiline TextBox Style -->
+    <Style x:Key="EditMultilineTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource FixedWidthTextBoxStyle}">
+        <Setter Property="Height" Value="60"/>
+        <Setter Property="AcceptsReturn" Value="True"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+    </Style>
+
+    <!-- Browse Image Panel Style -->
+    <Style x:Key="BrowseImagePanelStyle" TargetType="StackPanel">
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="0,0,0,10"/>
+    </Style>
+
+    <!-- Save Button Style -->
+    <Style x:Key="SaveButtonStyle" TargetType="Button" BasedOn="{StaticResource SpecialButtonStyle}">
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Margin" Value="0,10,0,0"/>
+        <Setter Property="Content" Value="Сохранить"/>
+    </Style>
+
+    <!-- Add these styles to your existing ResourceDictionary -->
+
+    <!-- Profile Image Style -->
+    <Style x:Key="ProfileImageStyle" TargetType="Image">
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Height" Value="100"/>
+        <Setter Property="Stretch" Value="UniformToFill"/>
+        <Setter Property="Margin" Value="0,0,0,20"/>
+        <Setter Property="Cursor" Value="Hand"/>
+    </Style>
+
+    <!-- Profile Username Style -->
+    <Style x:Key="ProfileUsernameStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Margin" Value="0,0,0,15"/>
+    </Style>
+
+    <!-- Password Field Label Style -->
+    <Style x:Key="PasswordLabelStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+        <Setter Property="Margin" Value="0,10,0,2"/>
+    </Style>
+
+    <!-- Profile Action Button Style -->
+    <Style x:Key="ProfileActionButtonStyle" TargetType="Button" BasedOn="{StaticResource SpecialButtonStyle}">
+        <Setter Property="Margin" Value="0,10,0,5"/>
+        <Setter Property="Width" Value="120"/>
+    </Style>
+
+    <!-- Profile Button Panel Style -->
+    <Style x:Key="ProfileButtonPanelStyle" TargetType="StackPanel">
+        <Setter Property="Orientation" Value="Vertical"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="0,15,0,0"/>
+    </Style>
+
+    <!-- Profile Form Container Style -->
+    <Style x:Key="ProfileFormContainerStyle" TargetType="StackPanel">
+        <Setter Property="Width" Value="250"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+
+    <!-- Add these styles to your existing ResourceDictionary -->
+
+    <!-- TabControl Style -->
+    <Style x:Key="OrderTabControlStyle" TargetType="TabControl">
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="BorderBrush" Value="#DDD"/>
+        <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+
+    <!-- TabItem Header Style -->
+    <Style x:Key="OrderTabItemHeaderStyle" TargetType="TabItem">
+        <Setter Property="HeaderTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" 
+                           FontWeight="Bold"
+                           FontSize="14"
+                           Foreground="#A578BB"/>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Padding" Value="10,5"/>
+    </Style>
+
+    <!-- Order Management Button Style -->
+    <Style x:Key="OrderManagementButtonStyle" TargetType="Button" BasedOn="{StaticResource BaseButtonStyle}">
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="Margin" Value="0,0,10,0"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+
+    <!-- Search Panel Style -->
+    <Style x:Key="SearchPanelStyle" TargetType="StackPanel">
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+
+    <!-- Search TextBox Style -->
+    <Style x:Key="SearchTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource BaseTextBoxStyle}">
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="Margin" Value="0,0,10,0"/>
+    </Style>
+
+    <!-- DataGrid Style -->
+    <Style x:Key="OrderDataGridStyle" TargetType="DataGrid">
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="RowHeight" Value="35"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="AutoGenerateColumns" Value="True"/>
+        <Setter Property="SelectionMode" Value="Single"/>
+        <Setter Property="SelectionUnit" Value="FullRow"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="BorderBrush" Value="#DDD"/>
+        <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+
+    <!-- Search Label Style -->
+    <Style x:Key="SearchLabelStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="0,0,10,0"/>
+    </Style>
+
+    <!-- Add these styles to your existing ResourceDictionary -->
+
+    <!-- Order Window Title Style -->
+    <Style x:Key="OrderWindowTitleStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="26"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="#A578BB"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="0,0,0,25"/>
+    </Style>
+
+    <!-- Form Label Style -->
+    <Style x:Key="OrderFormLabelStyle" TargetType="TextBlock">
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Foreground" Value="#A578BB"/>
+        <Setter Property="Margin" Value="0,0,0,5"/>
+    </Style>
+
+    <!-- Form TextBox Style -->
+    <Style x:Key="OrderFormTextBoxStyle" TargetType="TextBox">
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="BorderBrush" Value="#A578BB"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Margin" Value="0,0,0,15"/>
+    </Style>
+
+    <!-- Radio Button Group Style -->
+    <Style x:Key="OrderRadioButtonStyle" TargetType="RadioButton">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground" Value="#333"/>
+        <Setter Property="Margin" Value="0,2"/>
+    </Style>
+
+    <!-- Delivery Method Radio Button Style -->
+    <Style x:Key="DeliveryMethodRadioButtonStyle" TargetType="RadioButton" BasedOn="{StaticResource OrderRadioButtonStyle}">
+        <Setter Property="Margin" Value="0,0,20,0"/>
+    </Style>
+
+    <!-- Address Grid Style -->
+    <Style x:Key="AddressGridStyle" TargetType="Grid">
+        <Setter Property="Margin" Value="0,0,0,15"/>
+    </Style>
+
+    <!-- Address Column Style -->
+    <Style x:Key="AddressColumnStyle" TargetType="StackPanel">
+        <Setter Property="Margin" Value="0,0,10,0"/>
+    </Style>
+
+    <!-- ComboBox Style -->
+    <Style x:Key="OrderComboBoxStyle" TargetType="ComboBox">
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="BorderBrush" Value="#A578BB"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Margin" Value="0,0,0,15"/>
+    </Style>
+
+    <!-- Comment TextBox Style -->
+    <Style x:Key="CommentTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource OrderFormTextBoxStyle}">
+        <Setter Property="Height" Value="60"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="AcceptsReturn" Value="True"/>
+        <Setter Property="Margin" Value="0,10,0,0"/>
+    </Style>
+
+    <!-- Button Panel Style -->
+    <Style x:Key="OrderButtonPanelStyle" TargetType="StackPanel">
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="0,30,0,0"/>
+    </Style>
+
+    <!-- Cancel Button Style -->
+    <Style x:Key="OrderCancelButtonStyle" TargetType="Button">
+        <Setter Property="Width" Value="120"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Foreground" Value="#A578BB"/>
+        <Setter Property="BorderBrush" Value="#A578BB"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Margin" Value="0,0,20,0"/>
+    </Style>
+
+    <!-- Confirm Button Style -->
+    <Style x:Key="OrderConfirmButtonStyle" TargetType="Button">
+        <Setter Property="Width" Value="180"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Background" Value="#A578BB"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderBrush" Value="#A578BB"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Cursor" Value="Hand"/>
+    </Style>
+
+    <!-- Product View Window Styles -->
+    <Style x:Key="ProductTitleStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="#A578BB"/>
+        <Setter Property="Margin" Value="0 0 0 20"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+
+    <Style x:Key="ProductImageBorderStyle" TargetType="Border">
+        <Setter Property="BorderBrush" Value="#DDD"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Margin" Value="0 0 20 0"/>
+        <Setter Property="Padding" Value="10"/>
+    </Style>
+
+    <Style x:Key="ProductImageStyle" TargetType="Image">
+        <Setter Property="Stretch" Value="UniformToFill"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+
+    <Style x:Key="ProductDetailSectionStyle" TargetType="StackPanel">
+        <Setter Property="Margin" Value="0 0 0 15"/>
+    </Style>
+
+    <Style x:Key="ProductDetailLabelStyle" TargetType="TextBlock">
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="ProductDetailValueStyle" TargetType="TextBlock">
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="Foreground" Value="Gray"/>
+        <Setter Property="Margin" Value="0,4,0,0"/>
+    </Style>
+
+    <Style x:Key="ProductPriceStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="Foreground" Value="#A578BB"/>
+        <Setter Property="Margin" Value="0,4,0,0"/>
+    </Style>
+
+    <Style x:Key="ProductBuyButtonStyle" TargetType="Button" BasedOn="{StaticResource SpecialButtonStyle}">
+        <Setter Property="Width" Value="140"/>
+        <Setter Property="Height" Value="45"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Margin" Value="0,10,0,20"/>
+    </Style>
+
+    <Style x:Key="ReviewItemBorderStyle" TargetType="Border">
+        <Setter Property="BorderThickness" Value="0 0 0 1"/>
+        <Setter Property="BorderBrush" Value="#DDD"/>
+        <Setter Property="Padding" Value="4"/>
+        <Setter Property="Margin" Value="0,2"/>
+    </Style>
+
+    <Style x:Key="ReviewItemTextStyle" TargetType="TextBlock">
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="Foreground" Value="DarkSlateGray"/>
+    </Style>
+
+    <Style x:Key="ReviewComboBoxStyle" TargetType="ComboBox" BasedOn="{StaticResource BaseComboBoxStyle}">
+        <Setter Property="Width" Value="60"/>
+    </Style>
+
+    <Style x:Key="ReviewTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource MultilineTextBoxStyle}">
+        <Setter Property="Height" Value="80"/>
+        <Setter Property="Margin" Value="0 10 0 4"/>
+    </Style>
+
+    <Style x:Key="SubmitReviewButtonStyle" TargetType="Button" BasedOn="{StaticResource SpecialButtonStyle}">
+        <Setter Property="Width" Value="140"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Margin" Value="0 10 0 0"/>
+    </Style>
+
+    <Style x:Key="ProductCloseButtonStyle" TargetType="Button" BasedOn="{StaticResource BaseButtonStyle}">
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Height" Value="32"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="Margin" Value="0,30,0,0"/>
+    </Style>
+
+    <Style x:Key="SettingsWindowTitleStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="0,0,0,10"/>
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style x:Key="ProfileImageEllipseStyle" TargetType="Ellipse">
+        <Setter Property="Width" Value="70"/>
+        <Setter Property="Height" Value="70"/>
+        <Setter Property="Margin" Value="0,0,0,15"/>
+    </Style>
+
+    <Style x:Key="SettingsButtonStyle" TargetType="Button" BasedOn="{StaticResource LittleButtonStyle}">
+        <Setter Property="Margin" Value="0,0,0,10"/>
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="Height" Value="35"/>
+    </Style>
+    
+</ResourceDictionary>

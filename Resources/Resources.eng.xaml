@@ -1,0 +1,19 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="ButtonText_Cart">Cart</sys:String>
+    <sys:String x:Key="ButtonText_Home">Home</sys:String>
+    <sys:String x:Key="ButtonText_Sales">Sales</sys:String>
+    <sys:String x:Key="ButtonText_AboutUs">About Us</sys:String>
+    <sys:String x:Key="ButtonText_Profile">Profile</sys:String>
+    <sys:String x:Key="ButtonText_Manage">Add product</sys:String>
+    <sys:String x:Key="FilterText">Filters</sys:String>
+    <sys:String x:Key="PriceText">Price</sys:String>
+    <sys:String x:Key="BrandText">Brand</sys:String>
+    <sys:String x:Key="Adjust">Adjust</sys:String>
+    <sys:String x:Key="Clear">Clear filters</sys:String>
+
+    <sys:String x:Key="MenuItem_Profile">My profile</sys:String>
+    <sys:String x:Key="MenuItem_ChangeTheme">Change Theme</sys:String>
+
+</ResourceDictionary>

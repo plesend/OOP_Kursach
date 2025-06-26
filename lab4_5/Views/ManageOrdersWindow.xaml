@@ -1,0 +1,67 @@
+﻿<Window x:Class="lab4_5.ManageOrdersWindow"
+        Style="{DynamicResource WindowStyle}"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Обзор заказов"
+        Width="1200" Height="700"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResize"
+        Icon="D:\лабораторные работы\ооп\lab4_5\Resources\icon.jpg">
+
+    <Grid Margin="20">
+        <TabControl Style="{DynamicResource OrderTabControlStyle}">
+            <TabItem Header="Заказы" Style="{DynamicResource OrderTabItemHeaderStyle}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Orientation="Horizontal" Style="{DynamicResource SearchPanelStyle}">
+                        <Button Content="Удалить заказ"
+                                Style="{DynamicResource OrderManagementButtonStyle}"
+                                Command="{Binding DeleteOrderCommand}"/>
+                        <Button Content="Подтвердить заказ"
+                                Style="{DynamicResource OrderManagementButtonStyle}"
+                                Command="{Binding ConfirmOrderCommand}"/>
+                    </StackPanel>
+
+                    <DataGrid ItemsSource="{Binding Orders}"
+                              SelectedItem="{Binding SelectedOrder, Mode=TwoWay}"
+                              Style="{DynamicResource OrderDataGridStyle}"
+                              Grid.Row="1"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Товары в заказах" Style="{DynamicResource OrderTabItemHeaderStyle}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Orientation="Horizontal" Style="{DynamicResource SearchPanelStyle}">
+                        <TextBlock Text="Поиск по OrderID:"
+                                   Style="{DynamicResource SearchLabelStyle}"/>
+                        <TextBox Text="{Binding SearchOrderId, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{DynamicResource SearchTextBoxStyle}"/>
+                        <Button Content="Найти"
+                                Style="{DynamicResource OrderManagementButtonStyle}"
+                                Command="{Binding FilterCommand}"/>
+                        <Button Content="Сброс"
+                                Style="{DynamicResource OrderManagementButtonStyle}"
+                                Command="{Binding ResetCommand}"
+                                Margin="10,0,0,0"/>
+                    </StackPanel>
+
+                    <DataGrid ItemsSource="{Binding OrderItems}"
+                              Style="{DynamicResource OrderDataGridStyle}"
+                              Grid.Row="1"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

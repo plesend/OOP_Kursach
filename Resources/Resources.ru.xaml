@@ -1,0 +1,18 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="ButtonText_Cart">Корзина</sys:String>
+    <sys:String x:Key="ButtonText_Home">Главная</sys:String>
+    <sys:String x:Key="ButtonText_Sales">Акции</sys:String>
+    <sys:String x:Key="ButtonText_AboutUs">О нас</sys:String>
+    <sys:String x:Key="ButtonText_Profile">Личный кабинет</sys:String>
+    <sys:String x:Key="ButtonText_Manage">Добавить товар</sys:String>
+    <sys:String x:Key="FilterText">Фильтры блять</sys:String>
+    <sys:String x:Key="PriceText">Цена</sys:String>
+    <sys:String x:Key="BrandText">Бренд</sys:String>
+    <sys:String x:Key="Adjust">Применить</sys:String>
+    <sys:String x:Key="Clear">Очистить фильтры</sys:String>
+
+    <sys:String x:Key="MenuItem_Profile">Мой профиль</sys:String>
+    <sys:String x:Key="MenuItem_ChangeTheme">Сменить тему</sys:String>
+</ResourceDictionary>

@@ -1,0 +1,72 @@
+﻿<Window x:Class="lab4_5.EditProductWindow" 
+        Style="{DynamicResource WindowStyle}"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab4_5"
+        mc:Ignorable="d"
+        Title="Редактирование товара"
+        Width="450" Height="640"
+        MinWidth="400" MinHeight="580"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResize">
+
+    <Viewbox Stretch="Uniform" StretchDirection="Both">
+        <Grid Margin="20">
+            <Border Style="{DynamicResource MainBorderStyle}">
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Text="Редактирование товара"
+                               Style="{DynamicResource EditWindowTitleStyle}"/>
+
+                    <Separator Style="{DynamicResource BaseSeparatorStyle}" Margin="0,0,0,10"/>
+
+                    <StackPanel Style="{DynamicResource FormFieldContainerStyle}">
+                        <TextBlock Text="Название" Style="{DynamicResource BaseTextBlockStyle}"/>
+                        <TextBox Text="{Binding UpdatedProduct.Name, UpdateSourceTrigger=PropertyChanged}" 
+                                 Style="{DynamicResource FixedWidthTextBoxStyle}" MaxLength="50"/>
+                    </StackPanel>
+
+                    <StackPanel Style="{DynamicResource FormFieldContainerStyle}">
+                        <TextBlock Text="Тип товара" Style="{DynamicResource BaseTextBlockStyle}"/>
+                        <TextBox Text="{Binding UpdatedProduct.Description, UpdateSourceTrigger=PropertyChanged}" 
+                                 Style="{DynamicResource FixedWidthTextBoxStyle}" MaxLength="50"/>
+                    </StackPanel>
+
+                    <StackPanel Style="{DynamicResource FormFieldContainerStyle}">
+                        <TextBlock Text="Бренд" Style="{DynamicResource BaseTextBlockStyle}"/>
+                        <TextBox Text="{Binding UpdatedProduct.Brand, UpdateSourceTrigger=PropertyChanged}" 
+                                 Style="{DynamicResource FixedWidthTextBoxStyle}" MaxLength="20"/>
+                    </StackPanel>
+
+                    <StackPanel Style="{DynamicResource FormFieldContainerStyle}">
+                        <TextBlock Text="Состав" Style="{DynamicResource BaseTextBlockStyle}"/>
+                        <TextBox Text="{Binding UpdatedProduct.Composition, UpdateSourceTrigger=PropertyChanged}" 
+                                 Style="{DynamicResource EditMultilineTextBoxStyle}"/>
+                    </StackPanel>
+
+                    <StackPanel Style="{DynamicResource FormFieldContainerStyle}">
+                        <TextBlock Text="Цена" Style="{DynamicResource BaseTextBlockStyle}"/>
+                        <TextBox Text="{Binding PriceText, UpdateSourceTrigger=PropertyChanged}" 
+                                 Style="{DynamicResource FixedWidthTextBoxStyle}" MaxLength="5"/>
+                    </StackPanel>
+
+                    <StackPanel Style="{DynamicResource FormFieldContainerStyle}">
+                        <TextBlock Text="Путь к изображению" Style="{DynamicResource BaseTextBlockStyle}"/>
+                        <StackPanel Style="{DynamicResource BrowseImagePanelStyle}">
+                            <TextBox Text="{Binding UpdatedProduct.ImagePath, UpdateSourceTrigger=PropertyChanged}" 
+                                     Style="{DynamicResource FixedWidthTextBoxStyle}"
+                                     Width="150" Margin="0,0,10,0"/>
+                            <Button Content="Обзор"
+                                    Style="{DynamicResource CompactButtonStyle}"
+                                    Command="{Binding BrowseImageCommand}"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <Button Style="{DynamicResource SaveButtonStyle}"
+                            Command="{Binding SaveProductCommand}"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Viewbox>
+</Window>

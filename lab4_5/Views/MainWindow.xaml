@@ -1,0 +1,233 @@
+﻿<Window x:Class="lab4_5.MainWindow"
+        Style="{DynamicResource WindowStyle}"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab4_5"
+        xmlns:svg="http://sharpvectors.codeplex.com/runtime/"
+        xmlns:controls="clr-namespace:lab4_5.Controls"
+        mc:Ignorable="d"
+        Title="Главная"
+        Width="1142" Height="670"
+        MinWidth="900" MinHeight="600"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResize"
+        Icon="D:\лабораторные работы\ооп\lab4_5\Resources\icon.jpg">
+
+    <Window.DataContext>
+        <local:MainWindowViewModel />
+    </Window.DataContext>
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <DataTemplate x:Key="ProductTemplate">
+            <Button Command="{Binding DataContext.ShowProductViewCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                CommandParameter="{Binding}"
+                Background="Transparent"
+                BorderThickness="0"
+                Padding="0"
+                Margin="0,5,5,0"
+                HorizontalContentAlignment="Stretch"
+                VerticalContentAlignment="Stretch">
+                <Border CornerRadius="8" BorderBrush="LightGray" BorderThickness="1">
+                    <StackPanel>
+                        <Image Source="{Binding ImagePath}"
+                           Stretch="Uniform"
+                           Height="90"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding Name}"
+                               FontWeight="Bold"
+                               Margin="10,5,10,0"
+                               Height="40"
+                               TextAlignment="Right"
+                               TextWrapping="Wrap"/>
+                        <TextBlock Text="{Binding Description}"
+                               Foreground="Gray"
+                               Margin="10,5,10,5"
+                               TextAlignment="Right"/>
+                        <TextBlock Text="{Binding Price, StringFormat={}{0:F2} BYN}"
+           Style="{DynamicResource BaseTextBlockStyle}"
+           TextAlignment="Right"/>
+
+                        <Button Content="Купить"
+    Style="{DynamicResource BuyButtonStyle}"
+                                Height="20"
+    Command="{Binding DataContext.AddToCartCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+    CommandParameter="{Binding}" />
+                        <Button Content="Удалить"
+                            Style="{DynamicResource DeleteButtonStyle}"
+                            Visibility="{Binding DataContext.IsAdmin, RelativeSource={RelativeSource AncestorType=Window}, Converter={StaticResource BoolToVisibilityConverter}}"
+                            Command="{Binding DataContext.RemoveProductCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                            CommandParameter="{Binding}" />
+                        <Button Content="Редактировать"
+        Style="{DynamicResource BuyButtonStyle}"
+        Height="20"
+        Visibility="{Binding DataContext.IsAdmin, RelativeSource={RelativeSource AncestorType=Window}, Converter={StaticResource BoolToVisibilityConverter}}"
+        Command="{Binding DataContext.OpenEditWindowCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+        CommandParameter="{Binding}" />
+                    </StackPanel>
+                </Border>
+            </Button>
+        </DataTemplate>
+    </Window.Resources>
+
+
+    <ScrollViewer>
+        <Viewbox Stretch="Uniform" StretchDirection="Both">
+            <Grid x:Name="MainPage" Width="1142" Height="670" ShowGridLines="False">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="54*"/>
+                    <RowDefinition Height="125*"/>
+                    <RowDefinition Height="77*"/>
+                    <RowDefinition Height="0*"/>
+                    <RowDefinition Height="39*"/>
+                    <RowDefinition Height="250*"/>
+                    <RowDefinition Height="125*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <controls:Banner Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="7" Loaded="Banner_Loaded" Height="NaN" Margin="0,32,-8,8"/>
+
+                <Button Style="{DynamicResource SpecialButtonStyle}"
+                        Content="{DynamicResource ButtonText_Cart}"
+                        Click="OpenCartWindow_Click"
+                        Height="40" Width="150"/>
+
+                <Button Style="{DynamicResource BaseButtonStyle}"
+                        Content="{DynamicResource ButtonText_Home}"
+                        Grid.Column="3" Height="40" Width="150"/>
+
+                <Button Style="{DynamicResource BaseButtonStyle}"
+                        Content="{DynamicResource ButtonText_AboutUs}"
+                        Grid.Column="4" Height="40" Width="150"
+                        Click="OpenAboutUsWindow_Click"/>
+
+                <Button x:Name="AddProduct"
+                        Content="{DynamicResource ButtonText_Manage}"
+                        Style="{DynamicResource BaseButtonStyle}"
+                        Grid.Column="5"
+                        Height="40" Width="150"
+                        Click="AddProduct_Click">
+                    <Button.ContextMenu>
+                        <ContextMenu x:Name="ManageMenu" Placement="Bottom">
+                            <MenuItem Header="{DynamicResource ManageMenu_AddProduct}" Command="{Binding AddProductCommand}" />
+                            <MenuItem Header="{DynamicResource ManageMenu_ShowUsers}" Command="{Binding ShowUsersCommand}" />
+                            <MenuItem Header="Заказы" Click="OpenAllOrdersWindow_Click"/>
+                        </ContextMenu>
+                    </Button.ContextMenu>
+                </Button>
+
+
+                <Button Style="{DynamicResource BaseButtonStyle}"
+                        x:Name="ProfileButton"
+                        Content="{DynamicResource ButtonText_Profile}"
+                        Grid.Column="6"
+                        Command="{Binding OpenProfileCommand}"
+                        Height="40" Width="150"/>
+
+                <controls:CustomSearchBar Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="6"
+                          Margin="116,0,0,0"
+                          SearchBox="{Binding SearchBox, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SearchCommand="{Binding SearchCommand}"
+                          MaxSearchLength="150"
+                          SearchPlaceholder="Введите запрос..." />
+
+
+                <!-- Список товаров -->
+                <ScrollViewer Grid.Row="5" Grid.RowSpan="2" Grid.ColumnSpan="7"
+                              VerticalScrollBarVisibility="Hidden" Margin="163,12,0,0">
+                    <ItemsControl ItemsSource="{Binding Products}"
+                                  ItemTemplate="{StaticResource ProductTemplate}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel HorizontalAlignment="Center" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemContainerStyle>
+                            <Style TargetType="ContentPresenter">
+                                <Setter Property="Width" Value="150" />
+                                <Setter Property="Margin" Value="10" />
+                            </Style>
+                        </ItemsControl.ItemContainerStyle>
+                    </ItemsControl>
+                </ScrollViewer>
+
+                <!-- Фильтр -->
+                <Border x:Name="SortBorder"
+                        Grid.Row="5" Grid.Column="0" Grid.RowSpan="2"
+                        BorderBrush="LightGray"
+                        BorderThickness="0"
+                        Margin="0,12,0,0">
+                    <StackPanel>
+                        <TextBlock Style="{DynamicResource BaseTextBlockStyle}"
+                                   Text="{DynamicResource FilterText}"
+                                   FontWeight="Bold" FontSize="16"
+                                   Margin="0,5,0,10"
+                                   HorizontalAlignment="Center"/>
+                        <Line StrokeThickness="1" Stroke="#A578BB"
+                              X1="0" Y1="0" X2="120" Y2="0"
+                              HorizontalAlignment="Center"/>
+                        <TextBlock Style="{DynamicResource BaseTextBlockStyle}"
+                                   Text="{DynamicResource PriceText}" Margin="10,10,0,5"/>
+                        <StackPanel Orientation="Horizontal" Margin="0,10,0,5" HorizontalAlignment="Center">
+                            <TextBox Text="{Binding FromPrice}"
+         Style="{DynamicResource BaseTextBoxStyle}"
+         Width="60" Height="30"
+         Margin="0,0,10,0"
+         MaxLength="5"
+         PreviewTextInput="NumberOnly_PreviewTextInput"
+         PreviewKeyDown="SuppressInvalidKeys_PreviewKeyDown"
+         DataObject.Pasting="NumberOnly_Pasting"/>
+
+                            <TextBox Text="{Binding ToPrice}"
+         Style="{DynamicResource BaseTextBoxStyle}"
+         Width="60" Height="30"
+         MaxLength="5"
+         PreviewTextInput="NumberOnly_PreviewTextInput"
+         PreviewKeyDown="SuppressInvalidKeys_PreviewKeyDown"
+         DataObject.Pasting="NumberOnly_Pasting"/>
+
+                        </StackPanel>
+                        <TextBlock Style="{DynamicResource BaseTextBlockStyle}"
+                                   Text="{DynamicResource BrandText}" Margin="10,10,0,5"/>
+                        <ComboBox Text="{Binding Brand}"
+                                  SelectedIndex="{Binding SelectedBrandIndex}"
+                                  Style="{DynamicResource CmbStyle}"
+                                  Height="25" Width="120">
+                            <ComboBoxItem Content="Все" IsSelected="True"/>
+                            <ComboBoxItem Content="Essence"/>
+                            <ComboBoxItem Content="L'OREAL"/>
+                            <ComboBoxItem Content="Maybelline"/>
+                            <ComboBoxItem Content="NYX"/>
+                            <ComboBoxItem Content="Revolution"/>
+                        </ComboBox>
+                        <Button Style="{DynamicResource SpecialButtonStyle}"
+                                x:Name="Adjust"
+                                Content="{DynamicResource Adjust}"
+                                Width="120" Height="30"
+                                Margin="0,20,0,0"
+                                Command="{Binding AdjustCommand}"/>
+                        <Button Style="{DynamicResource SpecialButtonStyle}"
+                                x:Name="Clear"
+                                Content="Очистить"
+                                Width="120" Height="30"
+                                Margin="0,20,0,0"
+                                Command="{Binding ClearCommand}"/>
+                    </StackPanel>
+                </Border>
+
+            </Grid>
+        </Viewbox>
+    </ScrollViewer>
+</Window>

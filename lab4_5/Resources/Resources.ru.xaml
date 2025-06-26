@@ -1,0 +1,36 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="ButtonText_Cart">Корзина</sys:String>
+    <sys:String x:Key="ButtonText_Home">Главная</sys:String>
+    <sys:String x:Key="ButtonText_Sales">Акции</sys:String>
+    <sys:String x:Key="ButtonText_AboutUs">О нас</sys:String>
+    <sys:String x:Key="ButtonText_Profile">Личный кабинет</sys:String>
+    <sys:String x:Key="ButtonText_Manage">Управление</sys:String>
+    <sys:String x:Key="FilterText">Фильтры</sys:String>
+    <sys:String x:Key="PriceText">Цена</sys:String>
+    <sys:String x:Key="BrandText">Бренд</sys:String>
+    <sys:String x:Key="Adjust">Применить</sys:String>
+    <sys:String x:Key="Clear">Очистить фильтры</sys:String>
+    <sys:String x:Key="Cancel">Отменить</sys:String>
+
+    <sys:String x:Key="ManageMenu_AddProduct">Добавить продукт</sys:String>
+    <sys:String x:Key="ManageMenu_ShowUsers">Пользователи</sys:String>
+
+    <sys:String x:Key="MenuItem_Profile">Мой профиль</sys:String>
+    <sys:String x:Key="MenuItem_ChangeTheme">Сменить тему</sys:String>
+    <sys:String x:Key="MenuItem_ChangeLanguage">Eng</sys:String>
+    <sys:String x:Key="EditProfile">Редактировать профиль</sys:String>
+
+    <sys:String x:Key="Profile">Профиль</sys:String>
+
+    <sys:String x:Key="Editting">Редактирование</sys:String>
+    <sys:String x:Key="EditName">Изменить имя</sys:String>
+    <sys:String x:Key="EditPassword">Изменить пароль</sys:String>
+
+    <sys:String x:Key="Buy">Купить</sys:String>
+    <sys:String x:Key="Delete">Удалить</sys:String>
+
+    <sys:String x:Key="UsersWindow_Users">Список пользователей</sys:String>
+
+</ResourceDictionary>

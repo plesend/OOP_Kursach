@@ -1,0 +1,113 @@
+﻿<Window x:Class="lab4_5.OrderWindow"
+        Style="{DynamicResource WindowStyle}"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:lab4_5"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        Title="Оформление заказа"
+        Width="450" Height="800"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        FontFamily="Segoe UI">
+
+    <Window.Resources>
+        <local:DeliveryToVisibilityConverter x:Key="DeliveryToVisibilityConverter"/>
+        <local:PickupToVisibilityConverter x:Key="PickupToVisibilityConverter"/>
+        <local:StringEqualsConverter x:Key="StringEqualsConverter"/>
+    </Window.Resources>
+
+    <Grid Margin="30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Оформление заказа" Style="{DynamicResource OrderWindowTitleStyle}"/>
+
+        <StackPanel Grid.Row="1" VerticalAlignment="Top">
+            <TextBlock Text="ФИО" Style="{DynamicResource OrderFormLabelStyle}"/>
+            <TextBox Text="{Binding FullName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Style="{DynamicResource OrderFormTextBoxStyle}" MaxLength="100"/>
+
+            <TextBlock Text="Телефон" Style="{DynamicResource OrderFormLabelStyle}"/>
+            <TextBox Text="{Binding Phone, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                     Style="{DynamicResource OrderFormTextBoxStyle}" MaxLength="15"/>
+
+            <TextBlock Text="Способ оплаты" Style="{DynamicResource OrderFormLabelStyle}"/>
+            <StackPanel Orientation="Vertical" Margin="0,0,0,15">
+                <RadioButton Content="Наличными курьеру"
+                             GroupName="PaymentMethodGroup"
+                             IsChecked="{Binding Path=PaymentMethod, Converter={StaticResource StringEqualsConverter}, ConverterParameter=Наличными курьеру, Mode=TwoWay}"
+                             Style="{DynamicResource OrderRadioButtonStyle}"/>
+                <RadioButton Content="Картой курьеру"
+                             GroupName="PaymentMethodGroup"
+                             IsChecked="{Binding Path=PaymentMethod, Converter={StaticResource StringEqualsConverter}, ConverterParameter=Картой курьеру, Mode=TwoWay}"
+                             Style="{DynamicResource OrderRadioButtonStyle}"/>
+            </StackPanel>
+
+            <TextBlock Text="Способ получения заказа" Style="{DynamicResource OrderFormLabelStyle}"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                <RadioButton Content="Доставка"
+                             GroupName="DeliveryMethodGroup"
+                             IsChecked="{Binding Path=DeliveryMethod, Converter={StaticResource StringEqualsConverter}, ConverterParameter=Доставка, Mode=TwoWay}"
+                             Style="{DynamicResource DeliveryMethodRadioButtonStyle}"/>
+                <RadioButton Content="Самовывоз"
+                             GroupName="DeliveryMethodGroup"
+                             IsChecked="{Binding Path=DeliveryMethod, Converter={StaticResource StringEqualsConverter}, ConverterParameter=Самовывоз, Mode=TwoWay}"
+                             Style="{DynamicResource OrderRadioButtonStyle}"/>
+            </StackPanel>
+
+            <StackPanel Visibility="{Binding DeliveryMethod, Converter={StaticResource DeliveryToVisibilityConverter}}">
+                <TextBlock Text="Город" Style="{DynamicResource OrderFormLabelStyle}"/>
+                <TextBox Text="{Binding City, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                         Style="{DynamicResource OrderFormTextBoxStyle}" MaxLength="52"/>
+
+                <TextBlock Text="Адрес" Style="{DynamicResource OrderFormLabelStyle}"/>
+                <Grid Style="{DynamicResource AddressGridStyle}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" Style="{DynamicResource AddressColumnStyle}">
+                        <TextBlock Text="Улица и номер дома" FontWeight="Normal" Foreground="#A578BB" Margin="0,0,0,5"/>
+                        <TextBox Text="{Binding Street, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                 Style="{DynamicResource OrderFormTextBoxStyle}" MaxLength="100"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Text="Квартира" FontWeight="Normal" Foreground="#A578BB" Margin="0,0,0,5"/>
+                        <TextBox Text="{Binding Apartment, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                                 Style="{DynamicResource OrderFormTextBoxStyle}"/>
+
+                        <TextBlock Text="Корпус (если есть)" FontWeight="Normal" Foreground="#A578BB" Margin="0,0,0,5"/>
+                        <TextBox Text="{Binding Building, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{DynamicResource OrderFormTextBoxStyle}" MaxLength="20"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+
+            <StackPanel Visibility="{Binding DeliveryMethod, Converter={StaticResource PickupToVisibilityConverter}}">
+                <TextBlock Text="Выберите магазин для самовывоза" Style="{DynamicResource OrderFormLabelStyle}"/>
+                <ComboBox ItemsSource="{Binding PickupPoints}"
+                          SelectedItem="{Binding SelectedPickupPoint, UpdateSourceTrigger=PropertyChanged}"
+                          Style="{DynamicResource OrderComboBoxStyle}"/>
+            </StackPanel>
+
+            <TextBlock Text="Комментарий к заказу (необязательно)" Style="{DynamicResource OrderFormLabelStyle}"/>
+            <TextBox Text="{Binding Comment, UpdateSourceTrigger=PropertyChanged}"
+                     Style="{DynamicResource CommentTextBoxStyle}" MaxLength="1000"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Style="{DynamicResource OrderButtonPanelStyle}">
+            <Button Content="Отмена"
+                    Style="{DynamicResource OrderCancelButtonStyle}"
+                    Click="Decline_Click"/>
+            <Button Content="Подтвердить заказ"
+                    Style="{DynamicResource OrderConfirmButtonStyle}"
+                    Command="{Binding ConfirmOrderCommand}"/>
+        </StackPanel>
+    </Grid>
+</Window>

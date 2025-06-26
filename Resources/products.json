@@ -1,0 +1,86 @@
+[
+  {
+    "Name": "Essence gelly-grip primer",
+    "Description": "Праймер",
+    "Brand": "Essence",
+    "ImagePath": "D:/лабораторные работы/ооп/lab4_5/pics/essence-primer-jelly-grip.jpg",
+    "Price": 123
+  },
+  {
+    "Name": "L'OREAL PARIS panorama",
+    "Description": "Тушь для ресниц",
+    "Brand": "L'OREAL",
+    "ImagePath": "D:/лабораторные работы/ооп/lab4_5/pics/L'OREAL-PARIS-panorama.jpg",
+    "Price": 245
+  },
+  {
+    "Name": "Maybelline Fit Me Matte",
+    "Description": "Праймер",
+    "Brand": "Maybelline",
+    "ImagePath": "D:/лабораторные работы/ооп/lab4_5/pics/Maybelline-Fit-Me-Matte.jpg",
+    "Price": 189
+  },
+  {
+    "Name": "NYX HD Studio Photogenic",
+    "Description": "Консилер",
+    "Brand": "NYX",
+    "ImagePath": "D:/лабораторные работы/ооп/lab4_5/pics/NYX HD Studio Photogenic.jpg",
+    "Price": 210
+  },
+  {
+    "Name": "Revolution Banana Powder",
+    "Description": "Пудра",
+    "Brand": "Revolution",
+    "ImagePath": "D:/лабораторные работы/ооп/lab4_5/pics/Revolution Banana Powder.jpg",
+    "Price": 275
+  },
+  {
+    "Name": "L'OREAL PARIS Infallible 24H",
+    "Description": "Тональный крем",
+    "Brand": "L'OREAL",
+    "ImagePath": "D:/лабораторные работы/ооп/lab4_5/pics/L'OREAL PARIS Infallible 24H Fresh Wear Foundation.jpg",
+    "Price": 390
+  },
+  {
+    "Name": "Maybelline Lash Sensational Sky High",
+    "Description": "Тушь для ресниц",
+    "Brand": "Maybelline",
+    "ImagePath": "D:/лабораторные работы/ооп/lab4_5/pics/Maybelline Lash Sensational Sky High.jpg",
+    "Price": 198
+  },
+  {
+    "Name": "Essence Stay All Day 16h Foundation",
+    "Description": "Тональный крем",
+    "Brand": "Essence",
+    "ImagePath": "D:/лабораторные работы/ооп/lab4_5/pics/Essence Stay All Day 16h Foundation.jpg",
+    "Price": 165
+  },
+  {
+    "Name": "NYX Can't Stop Won't Stop Setting Powder",
+    "Description": "Фиксирующая пудра",
+    "Brand": "NYX",
+    "ImagePath": "D:/лабораторные работы/ооп/lab4_5/pics/NYX Can't Stop Won't Stop Setting Powder.jpg",
+    "Price": 223
+  },
+  {
+    "Name": "Revolution Conceal & Define Concealer",
+    "Description": "Консилер",
+    "Brand": "Revolution",
+    "ImagePath": "D:/лабораторные работы/ооп/lab4_5/pics/Revolution Conceal & Define Concealer.jpg",
+    "Price": 155
+  },
+  {
+    "Name": "Maybelline SuperStay Matte Ink",
+    "Description": "Жидкая матовая помада",
+    "Brand": "Maybelline",
+    "ImagePath": "D:/лабораторные работы/ооп/lab4_5/pics/Maybelline SuperStay Matte Ink.jpg",
+    "Price": 199
+  },
+  {
+    "Name": "Essence Lash Princess Mascara",
+    "Description": "Тушь для ресниц",
+    "Brand": "Essence",
+    "ImagePath": "D:/лабораторные работы/ооп/lab4_5/pics/Essence Lash Princess False Lash Effect Mascara.jpg",
+    "Price": 145
+  }
+]

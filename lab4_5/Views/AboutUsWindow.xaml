@@ -1,0 +1,63 @@
+﻿<Window x:Class="lab4_5.AboutUsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="О нас"
+        Height="600" Width="900"
+        Background="#A578BB"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResize"
+        Style="{DynamicResource WindowStyle}">
+
+    <Grid Margin="30">
+        <Border Style="{DynamicResource MainBorderStyle}" Background="White" CornerRadius="15" Padding="30">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="3*" />
+                </Grid.ColumnDefinitions>
+
+                <Image Source="D:\лабораторные работы\ооп\lab4_5\lab4_5\pics\AboutUsPic.jpg"
+                       Style="{DynamicResource AboutUsImageStyle}" />
+
+                <StackPanel Grid.Column="1" VerticalAlignment="Top" Margin="12 0 0 0">
+                    <TextBlock Text="О нас"
+                               Style="{DynamicResource AboutUsHeadingStyle}" />
+
+                    <TextBlock Text="Мы — команда, увлечённая красотой и уходом за собой. Наш магазин предлагает только качественную косметику от проверенных брендов."
+                               Style="{DynamicResource AboutUsContentTextStyle}" />
+
+                    <TextBlock Text="📍 Адреса магазинов:"
+                               Style="{DynamicResource AboutUsSubheadingStyle}" />
+
+                    <StackPanel Margin="0 0 10 10">
+                        <TextBlock Text="Минск, ТЦ Галерея, 2 этаж"
+                                   Style="{DynamicResource AboutUsAddressTextStyle}" />
+                        <TextBlock Text="Минск, ТЦ Галилео, 7 этаж"
+                                   Style="{DynamicResource AboutUsAddressTextStyle}" />
+                        <TextBlock Text="Лида, ТЦ Лидапарк, 2 этаж"
+                                   Style="{DynamicResource AboutUsAddressTextStyle}" />
+                        <TextBlock Text="Гродно, ТЦ TRINITI, 2 этаж"
+                                   Style="{DynamicResource AboutUsAddressTextStyle}" />
+                    </StackPanel>
+
+                    <TextBlock Text="📞 Телефон:"
+                               Style="{DynamicResource AboutUsSubheadingStyle}" />
+                    <TextBlock Text="+375 (44) 123-45-67"
+                               Style="{DynamicResource AboutUsAddressTextStyle}"
+                               Margin="0 0 10 10" />
+
+                    <TextBlock Text="✉ Почта:"
+                               Style="{DynamicResource AboutUsSubheadingStyle}" />
+                    <TextBlock Text="support@shirasagi.by"
+                               Style="{DynamicResource AboutUsAddressTextStyle}"
+                               Margin="0 0 10 20" />
+
+                    <TextBlock Text="⏰ Режим работы:"
+                               Style="{DynamicResource AboutUsSubheadingStyle}" />
+                    <TextBlock Text="Пн–Пт: 9:00–19:00, Сб–Вс: 10:00–17:00"
+                               Style="{DynamicResource AboutUsAddressTextStyle}" />
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
